@@ -202,12 +202,13 @@ section {
 }
 
 .lunch-dessert {
-  background-image: url('./img/デザート.jpg');
+  background-image: url('https://github.com/wqpo/cracra4/blob/main/img/%E3%83%86%E3%82%99%E3%82%B5%E3%82%99%E3%83%BC%E3%83%88.jpg?raw=true');
 }
 
 .lunch-bread {
-  background-image: url('./img/パン.jpg');
+  background-image: url('https://github.com/wqpo/cracra4/blob/main/img/%E3%83%8F%E3%82%9A%E3%83%B3.jpg?raw=true');
 }
+
 
 .lunch-coffee {
   background-image: url('./img/コーヒー.jpg');
@@ -223,11 +224,11 @@ section {
 }
 
 .dinner-dessert {
-  background-image: url('./img/デザート.jpg');
+  background-image: url('https://github.com/wqpo/cracra4/blob/main/img/%E3%83%86%E3%82%99%E3%82%B5%E3%82%99%E3%83%BC%E3%83%88.jpg?raw=true');
 }
 
 .dinner-bread {
-  background-image: url('./img/パン.jpg');
+  background-image: url('https://github.com/wqpo/cracra4/blob/main/img/%E3%83%8F%E3%82%9A%E3%83%B3.jpg?raw=true');
 }
 
 .dinner-coffee {
