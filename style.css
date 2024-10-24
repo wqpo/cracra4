@@ -210,9 +210,8 @@ section {
 }
 
 .lunch-coffee {
-  background-image: url('https://github.com/wqpo/cracra4/blob/main/img/%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC.jpg?raw=true');
+  background-image: url('./img/コーヒー.jpg');
 }
-
 /* ディナー用の背景画像 */
 .dinner-appetizer {
   background-image: url('https://github.com/wqpo/cracra4/blob/main/img/%E5%89%8D%E8%8F%9C.jpg?raw=true');
