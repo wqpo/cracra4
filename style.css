@@ -4,7 +4,6 @@
   --primary: #0d6efd;
   --dark: #21252f;
   --body: #888;
-  /* --orange: rgb(221, 155, 94); */
   --box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
 }
 
@@ -15,15 +14,17 @@ body {
   margin: 0; /* デフォルトのマージンをリセット */
   display: flex;
   flex-direction: column;
-  /* padding-bottom: 20px; フッターの高さに応じて調整 */
   min-height: 100vh; /* 最小の高さを100vhに設定 */
- 
+  
+  background-image: url('./img/背景.jpg'); /* 画像のパスを指定 */
+  background-size: cover; /* 画像を全体にフィットさせる */
+  background-position: center; /* 画像を中央に配置 */
+  background-repeat: no-repeat; /* 画像を繰り返さない */
 }
 
 .main-content {
   flex: 1; /* フッター以外の部分が余分なスペースを埋める */
 }
-
 
 h1,
 h2,
@@ -40,6 +41,7 @@ a {
   color: var(--dark);
   text-decoration: none;
 }
+
 .text-black {
   color: black !important; /* 重要度を上げて強制的に黒に */
 }
@@ -48,6 +50,7 @@ a {
   text-align: right; /* 右揃えにする */
   width: 100%; /* 幅を100%に */
 }
+
 img {
   width: 100%;
 }
@@ -66,12 +69,12 @@ img {
   color: black !important;
 }
 
-
 .btn {
   padding: 14px 18px;
   border-width: 2px;
   border-radius: 0;
 }
+
 .hero {
   background-image: url(./img/cover.jpg);
   background-position: center;
@@ -107,19 +110,21 @@ img {
   color: #555; /* 本文の色を設定 */
   line-height: 1.6; /* 行間を調整 */
 }
+
 .image-section {
   margin: 0; /* 上下の余白を消す */
   padding: 0; /* 必要に応じてパディングも消す */
   margin-left: 30px;
   margin-right: 30px;
 }
-/* こっからメニューとか色々 */
 
+/* セクションの共通スタイル */
 section {
   padding-top: 120px;
   padding-bottom: 120px;
   margin-left: 10px;
   margin-right: 10px;
+  background-color: #f8f9fa; /* 背景色を追加 */
 }
 
 .card-effect {
@@ -160,10 +165,21 @@ section {
   padding: 20px;
   color: black;
   text-align: center; /* テキストを中央に */
+  opacity: 0; /* 初期状態で非表示 */
+  transition: opacity 0.35s ease; /* アニメーションを追加 */
 }
 
-.service p {
-  color: black !important; /* pの色を黒に */
+.service:hover h5 {
+  opacity: 1; /* hover時に表示 */
+}
+
+.description {
+  opacity: 0; /* 初期状態で非表示 */
+  transition: opacity 0.35s ease; /* アニメーションを追加 */
+}
+
+.service:hover .description {
+  opacity: 1; /* hover時に表示 */
 }
 
 .appetizer,
@@ -186,11 +202,11 @@ section {
 }
 
 .lunch-dessert {
-  background-image: url('https://github.com/wqpo/cracra4/blob/main/img/デザート.jpg?raw=true');
+  background-image: url('./img/デザート.jpg');
 }
 
 .lunch-bread {
-  background-image: url('https://github.com/wqpo/cracra4/blob/main/img/%E3%83%8F%E3%82%9A%E3%83%B3.jpg?raw=true');
+  background-image: url('./img/パン.jpg');
 }
 
 .lunch-coffee {
@@ -288,10 +304,6 @@ h5,
   color: var(--primary);
 }
 
-
-
-/* features section */
-/* features section */
 /* features section */
 .col-img {
   background-image: url(/img/酒.jpg);
@@ -307,107 +319,30 @@ h5,
 }
 
 .overlay {
-  position: absolute; /* 絶対位置指定 */
-  top: 0; /* 上部に配置 */
-  left: 0; /* 左端に配置 */
-  margin-left: 20px; /* 写真の間際に寄せる */
-  color: white; /* 文字色を設定 */
-  z-index: 1; /* 他の要素の上に表示 */
-  text-align: left; /* 左揃えにする */
-}
-
-
-
-.feature {
-  margin-top: 20px; /* 特徴のセクションとの余白を追加 */
-}
-
-
-
-/* その他のh1スタイルを削除 */
-
-h1 {
-  color:black; /* 文字色を白に */
-  margin: 0; /* マージンをリセット */
-  padding: 20px 20px; /* 上下に余白を追加 */
-  z-index: 1; /* 他の要素の上に表示 */
-  position: relative; /* 必要に応じて */
-  margin-left: 20px;
-}
-
-.project {
-  position: relative;
-  overflow: hidden;
-}
-
-.project .overlay {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(37, 39, 71, 0.7);
-  padding: 30px;
-  display: flex;
-  align-items: flex-end;
-  transition: all 0.4s ease;
-  opacity: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* 黒のオーバーレイ */
 }
 
-.project img {
-  transition: all 0.4s ease;
+.col-img h1 {
+  position: absolute; /* 親要素に対して絶対位置 */
+  bottom: 20px; /* 下から20pxの位置 */
+  left: 20px; /* 左から20pxの位置 */
+  color: white; /* テキストの色を白に */
+  font-size: 36px; /* フォントサイズ */
 }
 
-.project:hover .overlay {
-  opacity: 1;
+.row {
+  display: flex; /* フレックスボックスを使用 */
+  flex-wrap: wrap; /* 折り返し可能に */
 }
 
-.project:hover img {
-  transform: scale(1.1);
-}
-
-.team-member img {
-  width: 125px;
-  height: 125px;
-  border-radius: 100px;
-}
-
-.social-icons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.social-icons a {
-  width: 34px;
-  height: 34px;
-  background-color: var(--primary);
-  border: 2px solid var(--primary);
-  color: #fff;
-  /* iのアイコンをaの中で中央揃えしてるみたい。
-  １つの要素に対して中央に寄せるときに親要素に
-  flexを付ける場合もある。 */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 100px;
-  margin-left: 5px;
-  transition: all 0.4s ease;
-}
-
-.social-icons a:hover {
-  color: var(--primary);
-  background-color: transparent;
-}
-
-form input.form-control {
-  height: 56px;
-}
-
-form .form-control {
-  border: transparent;
-  border-radius: 0;
-  background-color: rgba(0, 0, 0, 0.04);
+.col {
+  flex: 1 1 calc(33.333% - 20px); /* 各カラムの幅を指定 */
+  margin: 10px; /* マージンを追加 */
 }
 
 .footer-top {
