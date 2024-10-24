@@ -202,11 +202,13 @@ section {
 }
 
 .lunch-dessert {
-  background-image: url('https://github.com/wqpo/cracra4/blob/main/img/%E3%83%86%E3%82%99%E3%82%B5%E3%82%99%E3%83%BC%E3%83%88.jpg?raw=true');
+  background-image: url('https://raw.githubusercontent.com/wqpo/cracra4/main/img/%E3%83%86%E3%82%99%E3%82%B5%E3%82%99%E3%83%BC%E3%83%88.jpg
+');
 }
 
 .lunch-bread {
-  background-image: url('https://github.com/wqpo/cracra4/blob/main/img/%E3%83%8F%E3%82%9A%E3%83%B3.jpg?raw=true');
+  background-image: url('https://raw.githubusercontent.com/wqpo/cracra4/main/img/%E3%83%8F%E3%82%9A%E3%83%B3.jpg
+');
 }
 
 
@@ -224,11 +226,13 @@ section {
 }
 
 .dinner-dessert {
-  background-image: url('https://github.com/wqpo/cracra4/blob/main/img/%E3%83%86%E3%82%99%E3%82%B5%E3%82%99%E3%83%BC%E3%83%88.jpg?raw=true');
+  background-image: url('https://raw.githubusercontent.com/wqpo/cracra4/main/img/%E3%83%86%E3%82%99%E3%82%B5%E3%82%99%E3%83%BC%E3%83%88.jpg
+');
 }
 
 .dinner-bread {
-  background-image: url('https://github.com/wqpo/cracra4/blob/main/img/%E3%83%8F%E3%82%9A%E3%83%B3.jpg?raw=true');
+  background-image: url('https://raw.githubusercontent.com/wqpo/cracra4/main/img/%E3%83%8F%E3%82%9A%E3%83%B3.jpg
+');
 }
 
 .dinner-coffee {
