@@ -1,0 +1,445 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700;900&family=Sora:wght@400;700&display=swap");
+
+:root {
+  --primary: #0d6efd;
+  --dark: #21252f;
+  --body: #888;
+  /* --orange: rgb(221, 155, 94); */
+  --box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+}
+
+body {
+  font-family: 'Bodoni Moda', serif;
+  line-height: 1.7;
+  color: var(--body);
+  margin: 0; /* デフォルトのマージンをリセット */
+  display: flex;
+  flex-direction: column;
+  /* padding-bottom: 20px; フッターの高さに応じて調整 */
+  min-height: 100vh; /* 最小の高さを100vhに設定 */
+ 
+}
+
+.main-content {
+  flex: 1; /* フッター以外の部分が余分なスペースを埋める */
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.display-4 {
+  color: var(--dark);
+  font-weight: 700;
+}
+
+a {
+  color: var(--dark);
+  text-decoration: none;
+}
+.text-black {
+  color: black !important; /* 重要度を上げて強制的に黒に */
+}
+
+.navbar .text-end {
+  text-align: right; /* 右揃えにする */
+  width: 100%; /* 幅を100%に */
+}
+img {
+  width: 100%;
+}
+
+.navbar {
+  box-shadow: var(--box-shadow);
+}
+
+.logo {
+  width: 160px;
+}
+
+.navbar .nav-link {
+  font-size: 14px;
+  font-weight: 700;
+  color: black !important;
+}
+
+
+.btn {
+  padding: 14px 18px;
+  border-width: 2px;
+  border-radius: 0;
+}
+.hero {
+  background-image: url(./img/cover.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: scroll; /* fixedからscrollに変更 */
+  position: relative;
+  z-index: 2;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.hero::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.about-section {
+  padding: 60px 0; /* 上下の余白を追加 */
+  background-color: #f8f9fa; /* 背景色を設定 */
+}
+
+.about-section h1 {
+  color: #333; /* 見出しの色を設定 */
+  margin-bottom: 20px; /* 見出しの下の余白を設定 */
+}
+
+.about-section p {
+  color: #555; /* 本文の色を設定 */
+  line-height: 1.6; /* 行間を調整 */
+}
+.image-section {
+  margin: 0; /* 上下の余白を消す */
+  padding: 0; /* 必要に応じてパディングも消す */
+  margin-left: 30px;
+  margin-right: 30px;
+}
+/* こっからメニューとか色々 */
+
+section {
+  padding-top: 120px;
+  padding-bottom: 120px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.card-effect {
+  box-shadow: var(--box-shadow);
+  background-color: #fff;
+  padding: 25px;
+  transition: all 0.35s ease;
+}
+
+.card-effect:hover {
+  box-shadow: none;
+  transform: translateY(5px);
+}
+
+.iconbox {
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary);
+  color: white;
+  font-size: 32px;
+  border-radius: 100px;
+  flex: none;
+}
+
+.service {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  height: 250px; /* 各ボックスの高さを統一 */
+}
+
+.service h5 {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  color: black;
+  text-align: center; /* テキストを中央に */
+}
+
+.service p {
+  color: black !important; /* pの色を黒に */
+}
+
+.appetizer,
+.main-dish,
+.dessert,
+.bread,
+.coffee {
+  height: 300px; /* 高さを設定 */
+  background-size: cover;
+  background-position: center;
+}
+
+/* ランチ用の背景画像 */
+.lunch-appetizer {
+  background-image: url('./img/前菜.jpg');
+}
+
+.lunch-main-dish {
+  background-image: url('./img/メイン.jpg');
+}
+
+.lunch-dessert {
+  background-image: url('./img/デザート.jpg');
+}
+
+.lunch-bread {
+  background-image: url('./img/パン.jpg');
+}
+
+.lunch-coffee {
+  background-image: url('./img/コーヒー.jpg');
+}
+
+/* ディナー用の背景画像 */
+.dinner-appetizer {
+  background-image: url('./img/前菜.jpg');
+}
+
+.dinner-main-dish {
+  background-image: url('./img/メイン.jpg');
+}
+
+.dinner-dessert {
+  background-image: url('./img/デザート.jpg');
+}
+
+.dinner-bread {
+  background-image: url('./img/パン.jpg');
+}
+
+.dinner-coffee {
+  background-image: url('./img/コーヒー.jpg');
+}
+
+/* スマホ用のスタイル */
+@media (max-width: 767.98px) {
+  .row {
+    display: flex;
+    overflow-x: auto; /* スクロール可能にする */
+  }
+
+  .col-4 {
+    flex: 0 0 auto; /* 自動幅に設定 */
+    width: 33.33%; /* 3つのカラムを横に並べる */
+  }
+
+  .navbar-nav {
+    display: flex; /* フレックスボックスで横並び */
+    flex-wrap: nowrap; /* 折り返さない */
+    overflow-x: auto; /* スクロール可能にする */
+  }
+
+  .nav-item {
+    flex: 1; /* 各ナビアイテムが均等に並ぶようにする */
+    text-align: center; /* 中央揃え */
+  }
+
+  .nav-link {
+    font-size: 14px; /* フォントサイズを調整 */
+    padding: 10px; /* パディングを調整 */
+  }
+}
+
+.service {
+  position: relative;
+  overflow: hidden; /* 子要素がはみ出さないように */
+  text-align: center; /* 中央揃え */
+}
+
+.service::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.service:hover::after {
+  opacity: 1;
+  top: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+h5,
+.description {
+  color: transparent; /* デフォルトは透明 */
+  transition: color 0.3s; /* 色の変更にアニメーションを追加 */
+}
+
+.service:hover h5,
+.service:hover .description { /* descriptionも追加 */
+  color: white; /* hover時に白に変更 */
+}
+
+.service:hover .iconbox {
+  background-color: #fff;
+  color: var(--primary);
+}
+
+
+
+/* features section */
+/* features section */
+/* features section */
+.col-img {
+  background-image: url(/img/酒.jpg);
+  background-position: center;
+  background-size: cover;
+  min-height: 500px;
+  padding-top: 60px; /* 上に余白を追加 */
+  display: flex; /* フレックスボックスを使用 */
+  flex-direction: column; /* 縦に並べる */
+  position: relative; /* 画像の上にh1を配置するために追加 */
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.overlay {
+  position: absolute; /* 絶対位置指定 */
+  top: 0; /* 上部に配置 */
+  left: 0; /* 左端に配置 */
+  margin-left: 20px; /* 写真の間際に寄せる */
+  color: white; /* 文字色を設定 */
+  z-index: 1; /* 他の要素の上に表示 */
+  text-align: left; /* 左揃えにする */
+}
+
+
+
+.feature {
+  margin-top: 20px; /* 特徴のセクションとの余白を追加 */
+}
+
+
+
+/* その他のh1スタイルを削除 */
+
+h1 {
+  color:black; /* 文字色を白に */
+  margin: 0; /* マージンをリセット */
+  padding: 20px 20px; /* 上下に余白を追加 */
+  z-index: 1; /* 他の要素の上に表示 */
+  position: relative; /* 必要に応じて */
+  margin-left: 20px;
+}
+
+.project {
+  position: relative;
+  overflow: hidden;
+}
+
+.project .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(37, 39, 71, 0.7);
+  padding: 30px;
+  display: flex;
+  align-items: flex-end;
+  transition: all 0.4s ease;
+  opacity: 0;
+}
+
+.project img {
+  transition: all 0.4s ease;
+}
+
+.project:hover .overlay {
+  opacity: 1;
+}
+
+.project:hover img {
+  transform: scale(1.1);
+}
+
+.team-member img {
+  width: 125px;
+  height: 125px;
+  border-radius: 100px;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icons a {
+  width: 34px;
+  height: 34px;
+  background-color: var(--primary);
+  border: 2px solid var(--primary);
+  color: #fff;
+  /* iのアイコンをaの中で中央揃えしてるみたい。
+  １つの要素に対して中央に寄せるときに親要素に
+  flexを付ける場合もある。 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  margin-left: 5px;
+  transition: all 0.4s ease;
+}
+
+.social-icons a:hover {
+  color: var(--primary);
+  background-color: transparent;
+}
+
+form input.form-control {
+  height: 56px;
+}
+
+form .form-control {
+  border: transparent;
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.footer-top {
+  background-color: var(--dark);
+  color: white;
+  padding: 50px 0; /* 上下のパディングを調整 */
+  position: fixed; /* 相対位置 */
+  bottom: 0;
+  width: 100%; /* 幅を100%に */
+  z-index: 10; 
+}
+
+.footer-top h5 {
+  margin: 0; /* マージンをリセット */
+  white-space: nowrap; /* 改行を防ぐ */
+  color: white;
+}
+
+.icon {
+  width: 24px; /* アイコンのサイズを調整 */
+  height: 24px;
+}
+
+.border-start {
+  border-left: 1px solid white; /* 左の仕切り線 */
+}
+
+.border-end {
+  border-right: 1px solid white; /* 右の仕切り線 */
+}
+
+.container {
+  max-width: 1200px; /* コンテナの最大幅を設定 */
+  margin: auto; /* 中央揃え */
+}
