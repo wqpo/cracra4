@@ -191,7 +191,6 @@ section {
   background-size: cover;
   background-position: center;
 }
-
 /* ランチ用の背景画像 */
 .lunch-appetizer {
   background-image: url('https://github.com/wqpo/cracra4/blob/main/img/%E5%89%8D%E8%8F%9C.jpg?raw=true');
@@ -232,7 +231,6 @@ section {
 .dinner-coffee {
   background-image: url('https://github.com/wqpo/cracra4/blob/main/img/%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC.jpg?raw=true');
 }
-
 
 /* スマホ用のスタイル */
 @media (max-width: 767.98px) {
@@ -343,9 +341,14 @@ h5,
 .col {
   flex: 1 1 calc(33.333% - 20px); /* 各カラムの幅を指定 */
   margin: 10px; /* マージンを追加 */
+
 }
 
+
+
 .footer-top {
+
+    margin-top: 50px; /* フッターの上部にマージンを追加 */
   background-color: var(--dark);
   color: white;
   padding: 50px 0; /* 上下のパディングを調整 */
@@ -362,8 +365,21 @@ h5,
 }
 
 .icon {
-  width: 24px; /* アイコンのサイズを調整 */
+  width: 24px; /* 元のアイコンのサイズ */
   height: 24px;
+}
+.icon-small {
+  width: 20px; /* 電話とメールのアイコンサイズを少し小さく */
+  height: 20px;
+}
+
+.text-center span {
+  font-size: 1rem; /* 電話とメールのテキストサイズ */
+  color: white; /* テキストカラーを白に設定 */
+}
+
+.mt-3 {
+  margin-top: 1rem; /* 上のマージンを追加 */
 }
 
 .border-start {
@@ -374,7 +390,22 @@ h5,
   border-right: 1px solid white; /* 右の仕切り線 */
 }
 
-.container {
-  max-width: 1200px; /* コンテナの最大幅を設定 */
-  margin: auto; /* 中央揃え */
+/* 新しいCSS */
+.footer-top .row:last-child {
+  justify-content: center; /* 中央揃え */
+}
+
+.footer-top .row:last-child .col-12 {
+  flex-direction: row; /* 横並び */
+  justify-content: center; /* 中央揃え */
+
+}
+
+.phone-link {
+  color: white; /* デフォルトの色 */
+  text-decoration: none; /* 下線を消す */
+}
+
+.phone-link:hover {
+  color: blue; /* ホバー時の色 */
 }
