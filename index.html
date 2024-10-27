@@ -7,7 +7,9 @@
     <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
-    <title>サイトタイトル</title>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet"> -->
+
+    <title>ホームページ</title>
 </head>
 <body>
 
@@ -16,7 +18,7 @@
         <div class="container">
             <div class="d-flex flex-column w-100">
                 <div class="text-black mb-2 text-end w-100 ">
-                    📍茨城県つくば市筑波2969-3(筑波山神社近く) 📞電話番号：+39 06 6830 7895
+                    📍茨城県つくば市筑波2969-3(筑波山神社近く) 📞電話番号：029-897-3680
                 </div>
             </div>
         </div>
@@ -296,27 +298,106 @@
 
     <!-- お問い合わせ -->
   <!-- お問い合わせ -->
+<!-- お問い合わせ -->
 <section id="contact" style="margin-left: 30px; margin-right: 30px;">
     <div class="container text-center">
         <h2 class="text-black">ご予約・お問い合わせ</h2>
         <p class="text-black my-3">以下のフォームよりご連絡ください。</p>
-        <form>
-            <div class="mb-3 text-start"> <!-- ここを追加 -->
-                <label for="name" class="form-label">お名前</label>
-                <input type="text" class="form-control" id="name" required>
+        
+        <form id="contactForm">
+            <div class="mb-3 text-start">
+                <label for="name" class="form-label" style="color: black;">お名前</label>
+                <input type="text" class="form-control" id="name" required style="color: black;">
             </div>
-            <div class="mb-3 text-start"> <!-- ここを追加 -->
-                <label for="email" class="form-label">メールアドレス</label>
-                <input type="email" class="form-control" id="email" required>
+            <div class="mb-3 text-start">
+                <label for="ninzu" class="form-label" style="color: black;">人数</label>
+                <input type="text" class="form-control" id="ninzu" required style="color: black;">
             </div>
-            <div class="mb-3 text-start"> <!-- ここを追加 -->
-                <label for="message" class="form-label">メッセージ</label>
-                <textarea class="form-control" id="message" rows="3" required></textarea>
+            <div class="mb-3 text-start">
+                <label for="email" class="form-label" style="color: black;">返信用メールアドレス</label>
+                <input type="email" class="form-control" id="email" required style="color: black;">
             </div>
-            <button type="submit" class="btn btn-primary">送信</button>
+            <div class="mb-3 text-start">
+                <label for="message" class="form-label" style="color: black;">メッセージ</label>
+                <p style="color: black;">『○月○日、○時○分』のような形式でお願い致します。</p>
+                <textarea class="form-control" id="message" rows="3" required style="color: black;"></textarea>
+            </div>
+
+            <!-- 注意事項のメッセージ -->
+            <div class="mb-3 text-start">
+                <p class="text-black" style="color: gray; font-size: 0.8rem;">
+                    ・まだご予約は確定しておりません。<br>
+                    ・混雑具合や諸事情により、ご希望の日時に添えない場合があります。<br>
+                    ・記入頂いたメールアドレスに確定した予約日時をこちらから返信させて頂きます。<br>
+                    ・今一度、メールアドレスに誤りがないかご確認ください。<br>
+                    ・当日のご予約はお電話からお願い致します。
+                </p>
+            </div>
+
+            <!-- 新しいチェックボックスの配置 -->
+            <div class="mb-3 text-start d-flex align-items-center">
+                <input type="checkbox" id="agreement" required style="margin-right: 10px;">
+                <label for="agreement" class="text-black mb-0">
+                    全ての注意事項を確認し、同意しました。
+                </label>
+            </div>
+
+            <button type="button" class="btn btn-primary mb-5" id="submitButton" onclick="sendForm()" disabled>送信</button>
+            <p id="errorMessage" style="color: red; display: none;">既に送信されています。</p>
         </form>
+        <div style="margin-bottom: 100px;"></div>
     </div>
 </section>
+
+<script>
+    // チェックボックスの状態を監視
+    document.getElementById('agreement').addEventListener('change', function() {
+        const submitButton = document.getElementById('submitButton');
+        submitButton.disabled = !this.checked; // チェックされていない場合は無効化
+    });
+
+    let isSubmitted = false; // 送信状態を管理する変数
+
+    function sendForm() {
+        if (isSubmitted) {
+            document.getElementById('errorMessage').style.display = 'block'; // メッセージを表示
+            return; // 送信処理を終了
+        }
+
+        const name = document.getElementById('name').value;
+        const ninzu = document.getElementById('ninzu').value; // 人数の入力を追加
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        const formURL = "https://docs.google.com/forms/d/e/1FAIpQLSfbAeAesBO6G3raWGvWb0cYmr7xcBW3ZdiHqhsXdNF0MQbTCQ/formResponse"; // 実際のフォームURLに置き換えました
+
+        const data = new URLSearchParams();
+        data.append("entry.418942243", name); // お名前のID
+        data.append("entry.1031004734", ninzu); // 人数のIDを追加
+        data.append("entry.1198198480", email); // メールアドレスのID
+        data.append("entry.819914420", message); // メッセージのID
+
+        fetch(formURL, {
+            method: 'POST', 
+            body: data,
+            mode: 'no-cors'
+        })
+        .then(response => {
+            console.log('Response:', response); // レスポンスを確認
+            alert('メッセージが送信されました！');
+            document.getElementById('contactForm').reset(); // フォームをリセット
+            isSubmitted = true; // 送信状態を更新
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    }
+</script>
+
+
+
+
+
 
 
 
@@ -325,8 +406,17 @@
     <div class="container">
         <div class="row text-center">
             <div class="col-4 d-flex align-items-center justify-content-center">
-                <img src="./img/cal.png" alt="Check" class="icon" />
-                <h5 class="ms-2">予約はこちら</h5>
+                <div>
+                    <h5 class="ms-2">予約はこちら</h5>
+                    <div class="d-flex align-items-center mt-2">
+                        <img src="./img/call.png" alt="電話をかける" class="icon-small" />
+                        <a href="tel:029-897-3680" class="ms-2 phone-link">029-897-3680</a>
+                    </div>
+                    <div class="d-flex align-items-center mt-2">
+                        <img src="./img/email.png" alt="メールで予約" class="icon-small" />
+                        <span class="ms-2">メールで予約</span>
+                    </div>
+                </div>
             </div>
             <div class="col-4 d-flex align-items-center justify-content-center border-start border-end">
                 <img src="./img/mono.png" alt="Access" class="icon" />
@@ -339,6 +429,11 @@
         </div>
     </div>
 </footer>
+
+
+
+
+
 
   
 
