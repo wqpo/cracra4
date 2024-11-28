@@ -552,6 +552,7 @@ h5,
 }
 
 
+/* 現在の .footer-top のスタイル */
 .footer-top {
   margin: 0; /* 左右の余白をリセット */
   padding: 50px 0; /* 上下のパディングはそのまま */
@@ -566,13 +567,36 @@ h5,
   /* margin-left, margin-right, padding-left, padding-rightは不要 */
 }
 
-
-
+/* 現在の .footer-top h5 のスタイル */
 .footer-top h5 {
   margin: 0; /* マージンをリセット */
   white-space: nowrap; /* 改行を防ぐ */
   color: black; /* h5の文字色も黒に変更 */
 }
+
+/* スマートフォン向けのスタイル */
+@media (max-width: 767px) {
+  /* 各カラムを縦並びにする */
+  .footer-top .col-4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* 中央揃え */
+  }
+
+  /* 予約、アクセス、Instagram のテキストを非表示にする */
+  .footer-top .col-4 h5 {
+    display: none; /* テキストを非表示 */
+  }
+
+  /* 特にアクセスリンクとインスタグラムリンクのテキストも非表示 */
+  .footer-top .col-4 .access-link-container h5,
+  .footer-top .col-4 .instagram-link h5 {
+    display: none; /* ここでも不要なテキストを非表示 */
+  }
+}
+
 
 
 .icon {
@@ -793,10 +817,6 @@ button:hover {
 }
 
 
-
-
-
-
 /* ランチメニューセクション */
 #lunch-services {
   position: relative;
@@ -827,12 +847,10 @@ button:hover {
   bottom: 30px;
   right: 30px;
   z-index: 1;
-  /* 文字部分より30px広く表示するため、calcで調整 */
   width: calc(50% + 60px); /* 幅を50%より30px広く */
-  height: 50%;
+  height: 55%;
   background-color: rgba(255, 255, 255, 0.8); /* 白いもや（透明度を調整） */
   backdrop-filter: blur(10px); /* 背景にぼかし効果 */
-  /* 文字部分に合わせて左右に30pxずらす */
   margin-left: -30px;
   margin-right: -30px;
   padding-top: 60px !important;
@@ -845,12 +863,13 @@ button:hover {
   right: 20px;
   z-index: 1;
   color: black;
-  padding: 0;
+  padding: 0 10px;
   text-align: right;
-  font-size: 2vw;
-  max-width: 50%;
+  font-size: 3vw; /* 初期フォントサイズ調整 */
+  max-width: 80%;
   opacity: 0;
   animation: slideInTextLunch 1.5s ease-out 0.3s forwards;
+  line-height: 1.4; /* 行間の調整 */
 }
 
 @keyframes slideInTextLunch {
@@ -907,12 +926,10 @@ button:hover {
   top: 20px;
   left: 20px;
   z-index: 1;
-  /* 文字部分より30px広く表示するため、calcで調整 */
   width: calc(50% + 60px); /* 幅を50%より30px広く */
   height: 50%;
   background-color: rgba(255, 255, 255, 0.8); /* 白いもや（透明度を調整） */
   backdrop-filter: blur(10px); /* 背景にぼかし効果 */
-  /* 文字部分に合わせて左右に30pxずらす */
   margin-left: -30px;
   margin-right: -30px;
 }
@@ -924,12 +941,13 @@ button:hover {
   left: 20px;
   z-index: 1;
   color: black;
-  padding: 0;
+  padding: 0 10px;
   text-align: left;
-  font-size: 2vw;
-  max-width: 50%;
+  font-size: 3vw; /* 初期フォントサイズ調整 */
+  max-width: 80%;
   opacity: 0;
   animation: slideInTextDinner 1.5s ease-out 0.3s forwards;
+  line-height: 1.4; /* 行間の調整 */
 }
 
 @keyframes slideInTextDinner {
@@ -955,5 +973,81 @@ button:hover {
   }
   100% {
     opacity: 1;
+  }
+}
+
+/* スマホ */
+/* スマホ向けの調整 */
+@media (max-width: 767px) {
+  /* 料理内容を2列で表示させる */
+  #lunch-services .container .row,
+  #dinner-services .container .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* 各メニュー列の設定 */
+  #lunch-services .container .col-md-6,
+  #dinner-services .container .col-md-6 {
+    flex: 0 0 48%; /* 各メニューを48%幅にして2列表示 */
+    margin: 10px 1%; /* カラムの間隔を少し調整 */
+  }
+
+  /* フォントサイズの調整 */
+  #lunch-services .container,
+  #dinner-services .container {
+    font-size: 6vw; /* フォントサイズを調整 */
+    line-height: 1.4; /* 行間の調整 */
+  }
+
+  /* 背景画像と文字サイズ調整 */
+  #lunch-services .background-image,
+  #dinner-services .background-image {
+    width: 90%; /* 幅を画面に合わせて縮小 */
+    height: 50%; /* 高さはそのまま */
+    padding-top: 50px !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* 背景画像の透明度を調整 */
+  #lunch-services .background-image,
+  #dinner-services .background-image {
+    background-color: rgba(255, 255, 255, 0.85); /* 白いもやの透明度を少し上げる */
+  }
+
+  /* 背景画像内の文字がはみ出さないように調整 */
+  #lunch-services .container,
+  #dinner-services .container {
+    max-width: 85%; /* 文字を背景画像の中に収める */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 10px; /* 余白を少し追加 */
+  }
+}
+
+/* PC画面向け調整 */
+@media (min-width: 768px) {
+  /* フォントサイズの調整 */
+  #lunch-services .container,
+  #dinner-services .container {
+    font-size: 2.5vw; /* フォントサイズを調整 */
+    max-width: 60%; /* 最大幅を60%に調整 */
+  }
+
+  /* 背景画像内の文字がはみ出さないように調整 */
+  #lunch-services .container,
+  #dinner-services .container {
+    padding: 0 20px; /* 文字に余白を追加 */
+  }
+
+  /* 背景画像の調整 */
+  #lunch-services .background-image,
+  #dinner-services .background-image {
+    width: calc(50% + 60px); /* 幅を50%より広く設定 */
+    height: 55%; /* 高さを調整 */
+    margin-left: -30px; /* 水平位置調整 */
+    margin-right: -30px; /* 水平位置調整 */
   }
 }
