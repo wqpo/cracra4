@@ -1,9 +1,11 @@
+// メニューのアニメーション
+
 document.addEventListener("DOMContentLoaded", function () {
   // IntersectionObserverのオプション設定
   const observerOptions = {
     root: null, // ビューポートを基準
     rootMargin: '0px', // マージン（ビューポートの範囲）
-    threshold: 0.5, // 50%がビューポートに入った時
+    threshold: 0.2, // 50%がビューポートに入った時
   };
 
   // ランチセクションのアニメーション
@@ -23,6 +25,14 @@ document.addEventListener("DOMContentLoaded", function () {
         // ランチセクションが50%表示されたらアニメーション開始
         lunchBackgroundImage.style.animationPlayState = "running";
         lunchContainer.style.animationPlayState = "running";
+        // アニメーションのリセット（再生時にアニメーションを再起動）
+        lunchBackgroundImage.style.animation = "none";
+        lunchBackgroundImage.offsetHeight; // Reflow（強制的に再描画）
+        lunchBackgroundImage.style.animation = ""; // 元のアニメーションを再設定
+
+        lunchContainer.style.animation = "none";
+        lunchContainer.offsetHeight; // Reflow（強制的に再描画）
+        lunchContainer.style.animation = ""; // 元のアニメーションを再設定
       } else {
         // ランチセクションが50%表示されていない場合は停止
         lunchBackgroundImage.style.animationPlayState = "paused";
@@ -37,6 +47,14 @@ document.addEventListener("DOMContentLoaded", function () {
         // ディナーセクションが50%表示されたらアニメーション開始
         dinnerBackgroundImage.style.animationPlayState = "running";
         dinnerContainer.style.animationPlayState = "running";
+        // アニメーションのリセット（再生時にアニメーションを再起動）
+        dinnerBackgroundImage.style.animation = "none";
+        dinnerBackgroundImage.offsetHeight; // Reflow（強制的に再描画）
+        dinnerBackgroundImage.style.animation = ""; // 元のアニメーションを再設定
+
+        dinnerContainer.style.animation = "none";
+        dinnerContainer.offsetHeight; // Reflow（強制的に再描画）
+        dinnerContainer.style.animation = ""; // 元のアニメーションを再設定
       } else {
         // ディナーセクションが50%表示されていない場合は停止
         dinnerBackgroundImage.style.animationPlayState = "paused";
