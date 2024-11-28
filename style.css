@@ -550,8 +550,6 @@ h5,
   margin: 10px; /* マージンを追加 */
 
 }
-
-
 /* 現在の .footer-top のスタイル */
 .footer-top {
   margin: 0; /* 左右の余白をリセット */
@@ -595,7 +593,13 @@ h5,
   .footer-top .col-4 .instagram-link h5 {
     display: none; /* ここでも不要なテキストを非表示 */
   }
+
+  /* スマホ向けにフォントサイズを小さくする */
+  .footer-top h5 {
+    font-size: 11px; /* フォントサイズを14pxに変更 */
+  }
 }
+
 
 
 
@@ -817,6 +821,8 @@ button:hover {
 }
 
 
+
+
 /* ランチメニューセクション */
 #lunch-services {
   position: relative;
@@ -865,13 +871,14 @@ button:hover {
   color: black;
   padding: 0 10px;
   text-align: right;
-  font-size: 3vw; /* 初期フォントサイズ調整 */
+  font-size: calc(1.2vw + 0.5rem); /* 画面幅に応じたフォントサイズ調整 */
   max-width: 80%;
   opacity: 0;
   animation: slideInTextLunch 1.5s ease-out 0.3s forwards;
   line-height: 1.4; /* 行間の調整 */
 }
 
+/* スライドインアニメーション */
 @keyframes slideInTextLunch {
   0% {
     transform: translateX(100%);
@@ -879,20 +886,6 @@ button:hover {
   }
   100% {
     transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-#lunch-services h1 {
-  opacity: 0;
-  animation: fadeInTitleLunch 1.8s ease-in-out forwards;
-}
-
-@keyframes fadeInTitleLunch {
-  0% {
-    opacity: 0;
-  }
-  100% {
     opacity: 1;
   }
 }
@@ -943,13 +936,14 @@ button:hover {
   color: black;
   padding: 0 10px;
   text-align: left;
-  font-size: 3vw; /* 初期フォントサイズ調整 */
+  font-size: calc(1.2vw + 0.5rem); /* 画面幅に応じたフォントサイズ調整 */
   max-width: 80%;
   opacity: 0;
   animation: slideInTextDinner 1.5s ease-out 0.3s forwards;
   line-height: 1.4; /* 行間の調整 */
 }
 
+/* スライドインアニメーション */
 @keyframes slideInTextDinner {
   0% {
     transform: translateX(-100%);
@@ -961,23 +955,9 @@ button:hover {
   }
 }
 
-#dinner-services h1 {
-  opacity: 0;
-  animation: fadeInTitleDinner 1.8s ease-in-out forwards;
-  margin-top: 40px; /* 40px 下にずらす */
-}
-
-@keyframes fadeInTitleDinner {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+/* スマホ */
 
 /* スマホ */
-/* スマホ向けの調整 */
 @media (max-width: 767px) {
   /* 料理内容を2列で表示させる */
   #lunch-services .container .row,
@@ -994,14 +974,14 @@ button:hover {
     margin: 10px 1%; /* カラムの間隔を少し調整 */
   }
 
-  /* フォントサイズの調整 */
+  /* フォントサイズの調整（スマホ表示時に11px） */
   #lunch-services .container,
   #dinner-services .container {
-    font-size: 6vw; /* フォントサイズを調整 */
+    font-size: 11px; /* フォントサイズを11pxに設定 */
     line-height: 1.4; /* 行間の調整 */
   }
 
-  /* 背景画像と文字サイズ調整 */
+  /* 背景画像のサイズ調整 */
   #lunch-services .background-image,
   #dinner-services .background-image {
     width: 90%; /* 幅を画面に合わせて縮小 */
@@ -1009,12 +989,6 @@ button:hover {
     padding-top: 50px !important;
     margin-left: auto;
     margin-right: auto;
-  }
-
-  /* 背景画像の透明度を調整 */
-  #lunch-services .background-image,
-  #dinner-services .background-image {
-    background-color: rgba(255, 255, 255, 0.85); /* 白いもやの透明度を少し上げる */
   }
 
   /* 背景画像内の文字がはみ出さないように調整 */
@@ -1027,12 +1001,14 @@ button:hover {
   }
 }
 
+
+
 /* PC画面向け調整 */
-@media (min-width: 768px) {
+@media (min-width: 780px) {
   /* フォントサイズの調整 */
   #lunch-services .container,
   #dinner-services .container {
-    font-size: 2.5vw; /* フォントサイズを調整 */
+    font-size: calc(1.5vw + 0.5rem); /* 画面縮小に合わせてフォントサイズを小さく調整 */
     max-width: 60%; /* 最大幅を60%に調整 */
   }
 
