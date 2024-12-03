@@ -1,3 +1,5 @@
+// 店内の写真スライダー
+
 document.addEventListener("DOMContentLoaded", function() {
     const slides = document.querySelectorAll('.blog-slide');  // 変更：'hero-slide' → 'blog-slide'
     const dots = document.querySelectorAll('.blog-dot');      // 変更：'hero-dot' → 'blog-dot'
