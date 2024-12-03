@@ -1,5 +1,5 @@
 // 上部の画像スライダー
-　　
+
 
 document.addEventListener("DOMContentLoaded", function() {
     const slides = document.querySelectorAll('.hero-slide');
